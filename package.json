@@ -5,6 +5,10 @@
   "version": "0.0.1",
   "publisher": "boanergesbone",
   "icon": "ocd-icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boanascimento/occ-code-decorator"
+  },
   "engines": {
     "vscode": "^1.27.0"
   },
