@@ -1,9 +1,10 @@
 {
   "name": "console-log-highlighter",
   "displayName": "Console.log Highlighter",
-  "description": "A simple extension to show off the decorations API",
+  "description": "Utilizado para melhorar a visualização de variáveis e funções declaradas num arquido js no desenvoldimento no OCC.",
   "version": "0.0.1",
-  "publisher": "lannonbr",
+  "publisher": "boanergesbone",
+  "icon": "ocd-icon.png",
   "engines": {
     "vscode": "^1.27.0"
   },
@@ -12,10 +13,18 @@
   ],
   "activationEvents": [
     "onLanguage:javascript",
-    "onLanguage:typescript"
+    "onLanguage:typescript",
+		"onCommand:extension.ocdPrepare"
   ],
   "main": "./out/extension",
-  "contributes": {},
+  "contributes": {
+    "commands": [
+      {
+        "command": "onCommand:extension.ocdPrepare",
+        "title": "OCD Prepare"
+      }
+    ]
+  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",

@@ -12,6 +12,24 @@ export function activate(context: vscode.ExtensionContext) {
     )[0];
     decorate(openEditor);
   });
+
+  let ocdPrepare = vscode.commands.registerCommand('extension.ocdPrepare', (item) => {
+    const _workspace = vscode.workspace.workspaceFolders![0];
+    const fsPath = _workspace.uri.fsPath;
+    const wsedit = new vscode.WorkspaceEdit();
+    const filePath = vscode.Uri.file(fsPath + '/ocdfile.json');
+    const value = {
+      "functionColor": "#ef9700",
+      "variableColor": "#7129c4"
+    };
+    const textEdit = new vscode.TextEdit(new vscode.Range(1, 1, 1, 1), JSON.stringify(value));
+    wsedit.createFile(filePath, { ignoreIfExists: true, overwrite: true });
+    wsedit.set(filePath, [textEdit]);
+    vscode.workspace.applyEdit(wsedit);
+    vscode.window.showInformationMessage('Arquivo "ocdfile.json" criado!');
+  });
+
+  context.subscriptions.push(ocdPrepare);
 }
 
 function decorate(editor: vscode.TextEditor) {
