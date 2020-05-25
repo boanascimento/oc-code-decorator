@@ -57,6 +57,10 @@ function decorate(editor: vscode.TextEditor) {
 
   editor.setDecorations(decorationType, decorationsArray);
 }
+
+// this method is called when your extension is deactivated
+export function deactivate() { }
+
 /*
 ?? Ducomentação para ajuda
 https://vscode.rocks/decorations/
@@ -64,3 +68,4 @@ https://vscode.rocks/tags/extensions-api
 https://vscode.rocks/tags/extensions
 
  */
+
